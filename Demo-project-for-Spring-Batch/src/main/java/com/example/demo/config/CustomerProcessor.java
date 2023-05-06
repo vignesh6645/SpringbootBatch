@@ -15,13 +15,10 @@ public class CustomerProcessor implements ItemProcessor<Customer,Customer> {
 
     @Override
     public Customer process(Customer customer) throws Exception {
-        if (customer.getGender().equals("Male")) {
             customer.setGguid(String.valueOf(getGguId()));
             customerRepository.save(customer);
             return customer;
-        }else {
-            return null;
-        }
+
     }
 
     public long getGguId() {
